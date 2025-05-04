@@ -16,7 +16,7 @@ from utils.utilities_url import get_base_url
 class SeleniumScraper:
     def __init__(self, url: str, base_url: str, number_of_htmls: int):
         chrome_options = Options()
-        # chrome_options.add_argument("--headless=new")
+        chrome_options.add_argument("--headless=new")
         chrome_options.page_load_strategy = 'eager'
         chrome_options.add_argument("--start-maximized")
         chrome_options.add_argument('--disable-dev-shm-usage')
@@ -30,11 +30,16 @@ class SeleniumScraper:
         chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
         chrome_options.add_experimental_option('useAutomationExtension', False)
         chrome_options.add_argument('--disable-blink-features=AutomationControlled')
-        service = webdriver.ChromeService()
-        self.driver = webdriver.Chrome(
-            service=service,
-            options=chrome_options
-        )
+
+        try:
+            service = webdriver.ChromeService()
+            self.driver = webdriver.Chrome(
+                service=service,
+                options=chrome_options
+            )
+        except Exception:
+            raise Exception("Could not start web driver. Try again.")
+
         self.url = url
         self.base_url = base_url
         self.number_of_htmls = number_of_htmls
