@@ -12,7 +12,7 @@ def reformat_url(url):
 
 
 def check_url_string(url: str):
-    regex_url = r"^(http|https)://(\w)+([-._]\w+)*\.[a-z]+(/.+)*/?$"
+    regex_url = r"^(http|https)://((--|[-._])?\w+)*(/[^\s]+)*/?$"
     pattern = re.compile(regex_url, re.MULTILINE | re.IGNORECASE)
     if not pattern.search(url):
         return False
