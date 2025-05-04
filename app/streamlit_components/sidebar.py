@@ -5,7 +5,7 @@ def sidebar_guide():
     st.sidebar.markdown(
         "## How to use - Step by step\n"
         "1. Enter your [Gemini API key](https://aistudio.google.com/app/apikey)🔑 \n"  # noqa: E501
-        '2. Paste a full valid URL link to scrape HTMLs and click on **"Extract HTML documents"** 📄\n'
+        '2. Paste a full valid URL link to scrape HTMLs and click on **"Extract HTML documents"**📄\n'
         "3. Set your desired parameters with sliders to modify keyword generation (recommended to leave at default)🎚️\n"
         "4. Generate keywords - every keyword generation may incur costs! Check Read me for more information.🧠\n"
         "5. Select keywords (recommended to have 5-10 keywords selected)📝\n"
@@ -20,9 +20,9 @@ def sidebar_guide():
         
         Enter a full URL in format https://www.example.com.
         
-        Some websites might have **anti-bot measurements**, which **block bots** from visiting their webpages. Therefore the program **won't** be able to extract HTML documents from protected websites.
+        Some website might have **anti-bot measurements**, which **block bots** from visiting their sites. Therefore the program **won't** be able to extract HTML documents from protected websites.
         
-        If there's a connection error during extraction or it mentions that the **content might be blocked**, then there's a high chance the extraction was blocked.
+        If there's a connection error during extraction or it mentions that the **content might be blocked**, use a different URL.
         
         ---
         """

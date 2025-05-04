@@ -1,5 +1,4 @@
 import re
-import torch
 import openai
 from keybert import KeyLLM
 from openai import OpenAI
@@ -11,7 +10,7 @@ from utils.prompts import (
     get_user_prompt_language,
     get_system_prompt_language
 )
-torch.classes.__path__ = []
+
 
 def llm_init(gemini_api_key, language, number_of_keywords, temperature, presence_penalty):
     client = OpenAI(

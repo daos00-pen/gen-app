@@ -3,7 +3,7 @@ import streamlit as st
 
 @st.fragment
 def api_key_input():
-    return st.text_input('Gemini API Key 🔑', type="password",
+    st.session_state["gemini_api_key"] = st.text_input('Gemini API Key 🔑', type="password",
                          help='You can get your API key from https://aistudio.google.com/app/apikey.')
 
 
