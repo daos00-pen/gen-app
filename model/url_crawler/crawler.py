@@ -13,11 +13,16 @@ class LinkCrawler:
         self.url = url
         self.base_url = get_base_url(self.url)
         self.number_of_htmls = number_of_htmls
-        self.scraper = SeleniumScraper(
-            self.url,
-            self.base_url,
-            self.number_of_htmls
-        )
+        
+        try:
+            self.scraper = SeleniumScraper(
+                self.url,
+                self.base_url,
+                self.number_of_htmls
+            )
+        except Exception as e:
+            raise Exception(e)
+
         self.unvisited_links = set()
         self.collected_internal_links = Counter()
 

@@ -31,10 +31,16 @@ class SeleniumScraper:
         chrome_options.add_experimental_option('useAutomationExtension', False)
         chrome_options.add_argument('--disable-blink-features=AutomationControlled')
         service = webdriver.ChromeService()
-        self.driver = webdriver.Chrome(
-            service=service,
-            options=chrome_options
-        )
+        
+        try:
+            service = webdriver.ChromeService()
+            self.driver = webdriver.Chrome(
+                service=service,
+                options=chrome_options
+            )
+        except Exception:
+            raise Exception("Could not start web driver. Try again.")
+            
         self.url = url
         self.base_url = base_url
         self.number_of_htmls = number_of_htmls
