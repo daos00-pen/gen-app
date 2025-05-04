@@ -25,7 +25,7 @@ def call_get_html(url, slider_number_of_htmls, gemini_api_key):
             try:
                  obj = LinkCrawler(url, slider_number_of_htmls)
                  obj.scrape_links()
-             except Exception as e:
+            except Exception as e:
                  print("Exception link:", url)
                  st.error(e)
                  process.write("Extraction end: Link error")
