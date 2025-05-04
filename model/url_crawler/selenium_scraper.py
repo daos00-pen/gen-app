@@ -16,7 +16,7 @@ from utils.utilities_url import get_base_url
 class SeleniumScraper:
     def __init__(self, url: str, base_url: str, number_of_htmls: int):
         chrome_options = Options()
-        # chrome_options.add_argument("--headless=new")
+        chrome_options.add_argument("--headless=new")
         chrome_options.page_load_strategy = 'eager'
         chrome_options.add_argument("--start-maximized")
         chrome_options.add_argument('--disable-dev-shm-usage')
