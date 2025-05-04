@@ -17,16 +17,16 @@ def streamlit_app():
     st.logo(image='resources/transparent_logo.png', size="large")
     st.title('AI SEO keyword generator')
 
-    api_key_input()
+    gemini_api_key = api_key_input()
 
-    form_html_extraction(st.session_state["gemini_api_key"])
+    form_html_extraction(gemini_api_key)
 
     if all(key in st.session_state for key in ("html_documents", "url_input", "slider_number_of_htmls")):
         extraction_information()
 
     if st.session_state['state'] == "keyword_generation" or (
             st.session_state['state'] == "searching" and "keywords" in st.session_state):
-        form_keywords_generation(st.session_state["gemini_api_key"])
+        form_keywords_generation(gemini_api_key)
         print("Form Done")
 
     if st.session_state['state'] == "searching" and "keywords" in st.session_state:
